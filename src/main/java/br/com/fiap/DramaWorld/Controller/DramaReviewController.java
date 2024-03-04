@@ -49,7 +49,7 @@ public class DramaReviewController {
     @ResponseBody
     public ResponseEntity<String> verCriticaFilmeJaponeses(@PathVariable("nomeDoFilme") String nomeDoFilme){
         //Por enquanto vamos retornara apenas uma mensagem
-        String mensagem = "Visualizando críticas para o dorama coreano: " + nomeDoFilme;
+        String mensagem = "Visualizando críticas para o filme japonês: " + nomeDoFilme;
         return ResponseEntity.ok(mensagem);
     }
     
