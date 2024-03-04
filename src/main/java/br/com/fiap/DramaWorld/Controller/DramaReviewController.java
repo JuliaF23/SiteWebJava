@@ -12,14 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import br.com.fiap.DramaWorld.Model.Categoria;
+import br.com.fiap.DramaWorld.Model.Critica;
 
 @Controller
 public class DramaReviewController {
     
     Logger log = LoggerFactory.getLogger(getClass());
 
-    List<Categoria> repository = new ArrayList<>();
+    List<Critica> repository = new ArrayList<>();
 
     @RequestMapping(method = RequestMethod.POST, path = "/dramareview/doramascoreanos/{nomeDoDorama}/criticas")
     @ResponseBody
@@ -51,6 +51,23 @@ public class DramaReviewController {
         //Por enquanto vamos retornara apenas uma mensagem
         String mensagem = "Visualizando críticas para o filme japonês: " + nomeDoFilme;
         return ResponseEntity.ok(mensagem);
+    }
+
+    @RequestMapping(method = RequestMethod.GET, path = "/dramareview/{id}")
+    @ResponseBody
+    public ResponseEntity<Critica> get(@PathVariable Long id){
+        log.info("buscando criticas com id {}", id);
+
+        var critica = repository
+                            .stream()
+                            .filter(c -> c.id().equals(id))
+                            .findFirst();
+
+        if (critica.isEmpty()){
+            return ResponseEntity.status(404).build();
+        }
+
+        return ResponseEntity.status(200).body(critica.get());   
     }
     
 }

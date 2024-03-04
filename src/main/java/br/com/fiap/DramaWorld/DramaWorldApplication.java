@@ -17,7 +17,7 @@ public class DramaWorldApplication {
 	@RequestMapping
 	@ResponseBody
 	public String home(){
-		return "Drama World";
+		return "Drama World!";
 	}
 
 }
