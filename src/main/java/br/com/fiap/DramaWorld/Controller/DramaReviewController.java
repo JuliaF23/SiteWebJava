@@ -21,7 +21,7 @@ public class DramaReviewController {
 
     List<Critica> repository = new ArrayList<>();
 
-    @RequestMapping(method = RequestMethod.POST, path = "/dramareview/doramascoreanos/{nomeDoDorama}/criticas")
+    @RequestMapping(method = RequestMethod.POST, path = "/dramareview/doramas/coreanos/criticas")
     @ResponseBody
     public ResponseEntity<String> verCriticaDoramaCoreano(@PathVariable("nomeDoDorama") String nomeDoDorama){
         //Por enquanto vamos retornara apenas uma mensagem
@@ -29,7 +29,7 @@ public class DramaReviewController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/dramareview/doramasjaponeses/{nomeDoDorama}/criticas")
+    @RequestMapping(method = RequestMethod.POST, path = "/dramareview/doramas/japoneses/criticas")
     @ResponseBody
     public ResponseEntity<String> verCriticaDoramaJaponeses(@PathVariable("nomeDoDorama") String nomeDoDorama){
         //Por enquanto vamos retornara apenas uma mensagem
@@ -37,7 +37,7 @@ public class DramaReviewController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/dramareview/filmescoreanos/{nomeDoFilme}/criticas")
+    @RequestMapping(method = RequestMethod.POST, path = "/dramareview/filmes/coreanos/criticas")
     @ResponseBody
     public ResponseEntity<String> verCriticaFilmeCoreano(@PathVariable("nomeDoFilme") String nomeDoFilme){
         //Por enquanto vamos retornara apenas uma mensagem
@@ -45,7 +45,7 @@ public class DramaReviewController {
         return ResponseEntity.ok(mensagem);
     }
 
-    @RequestMapping(method = RequestMethod.POST, path = "/dramareview/filmesjaponeses/{nomeDoDorama}/criticas")
+    @RequestMapping(method = RequestMethod.POST, path = "/dramareview/filmes/japoneses/criticas")
     @ResponseBody
     public ResponseEntity<String> verCriticaFilmeJaponeses(@PathVariable("nomeDoFilme") String nomeDoFilme){
         //Por enquanto vamos retornara apenas uma mensagem
